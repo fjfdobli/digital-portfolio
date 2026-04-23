@@ -229,6 +229,68 @@
   }
   .tab-content { display: none; }
   .tab-content.active { display: block; animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1); }
+
+  .memory-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .memory-card {
+    background: rgba(255,255,254,0.04);
+    border: 1px solid rgba(255,255,254,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .memory-photo {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    background: rgba(255,255,254,0.03);
+  }
+
+  .class-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .portrait-photo {
+    aspect-ratio: 3 / 4;
+    object-position: center 18%;
+  }
+
+  .memory-copy {
+    padding: 28px;
+  }
+
+  .memory-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ff8906;
+    margin-bottom: 12px;
+  }
+
+  .memory-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-style: italic;
+    line-height: 0.95;
+    margin: 0 0 14px;
+  }
+
+  .memory-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.82;
+  }
+
+  @media (max-width: 1024px) {
+    .memory-grid {
+      grid-template-columns: 1fr;
+    }
+  }
   </style>
 </head>
 <body class="grain h-full">
@@ -282,6 +344,32 @@
             </div>
           </div>
 
+          <div class="mt-20">
+            <p class="text-xs tracking-[0.3em] uppercase opacity-50 mb-4">Class Memories</p>
+            <h2 class="serif text-4xl md:text-5xl italic mb-4">The People I Will Carry Forward</h2>
+            <p class="text-sm leading-relaxed opacity-60 max-w-3xl mb-10">A pair of photos that hold both the people who shared my college life and the person I am still becoming because of that journey.</p>
+
+            <div class="memory-grid">
+              <article class="memory-card">
+                <img src="class picture.png" alt="Class picture with classmates and teacher inside the classroom" class="memory-photo class-photo">
+                <div class="memory-copy">
+                  <p class="memory-kicker">Farewell Message</p>
+                  <h3 class="memory-title">To the class that shared this journey</h3>
+                  <p class="memory-text">Thank you for the memories, the laughter, the pressure, the lessons, and the kindness that made college meaningful. This class picture reminds me that I never walked this journey alone. As we move forward after college, I pray that God bless us all and guide us in every step. May we prosper in our careers, grow in wisdom, stay strong in our well-being, and remain humble, faithful, and hopeful in the life ahead.</p>
+                </div>
+              </article>
+
+              <article class="memory-card">
+                <img src="me.png" alt="Portrait of Ferdinand John Dobli standing by the waterfront" class="memory-photo portrait-photo">
+                <div class="memory-copy">
+                  <p class="memory-kicker">About Me</p>
+                  <h3 class="memory-title">A snapshot of who I am becoming</h3>
+                  <p class="memory-text">This photo reflects the version of me that AdDU helped shape - more focused, more resilient, and more ready for the future. I carry with me the lessons of discipline, faith, gratitude, and quiet perseverance. As I continue my path in technology and in life, I want to keep growing into someone who works with excellence, leads with sincerity, and uses what I learn to serve others well.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
           <!-- Journey Map Image -->
           <div class="mb-16">
             <p class="text-xs tracking-[0.3em] uppercase opacity-50 mb-6">My AdDU Journey Map</p>
@@ -318,7 +406,6 @@
 
             </div>
           </div>
-
         </div>
       </section>
 
