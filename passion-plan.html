@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passion Plan - Ferdinand John F. Dobli</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :root {
+      --paper: #fbf6ef;
+      --ink: #1f2430;
+      --muted: #5a6272;
+      --accent: #cb6d2e;
+      --accent-soft: #f2dcc9;
+      --panel: #fffdf9;
+      --line: #dfd2c1;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 18mm 18mm 16mm;
+      background:
+        radial-gradient(circle at top right, rgba(203, 109, 46, 0.12), transparent 28%),
+        linear-gradient(180deg, #fffaf3 0%, var(--paper) 100%);
+      position: relative;
+      page-break-after: always;
+      overflow: hidden;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .accent-line {
+      width: 56px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .topbar,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0;
+      margin: 0;
+      color: #182033;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      max-width: 560px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    .meta {
+      min-width: 185px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(24, 32, 51, 0.08);
+      border-radius: 8px;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(24, 32, 51, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(31, 36, 48, 0.05);
+    }
+
+    .section p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    .section + .section {
+      margin-top: 16px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #8c4312;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+    }
+
+    .lead-block {
+      margin-top: 18px;
+      padding: 18px;
+      border-left: 4px solid var(--accent);
+      background: rgba(203, 109, 46, 0.08);
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .roadmap-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 194px;
+    }
+
+    .roadmap-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      color: #182033;
+    }
+
+    .roadmap-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .value-pill {
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: #33405a;
+    }
+
+    .closing {
+      margin-top: 18px;
+      padding: 18px;
+      background: #182033;
+      color: #fff7ef;
+      border-radius: 8px;
+    }
+
+    .closing p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.8;
+      color: inherit;
+    }
+
+    .footer {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 10mm;
+      padding-top: 10px;
+      border-top: 1px solid rgba(24, 32, 51, 0.12);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <div class="topbar">
+      <div>
+        <div class="accent-line"></div>
+        <p class="eyebrow">Module 03 / Becoming an Ignatian Leader for Life</p>
+        <h1>Passion Plan</h1>
+        <p class="intro">
+          A clearer expression of who I am becoming, the life I hope to build, and the kind of leader
+          I want to be through faith, discipline, service, and purposeful work.
+        </p>
+      </div>
+      <aside class="meta">
+        <span class="meta-label">Student</span>
+        <p class="meta-value">Ferdinand John F. Dobli</p>
+        <span class="meta-label">Program</span>
+        <p class="meta-value">BS Information Technology / IT 4-A</p>
+        <span class="meta-label">Course Context</span>
+        <p class="meta-value">Seniors' Integration Program</p>
+      </aside>
+    </div>
+
+    <div class="section">
+      <span class="section-tag">1 / Personal Mission Statement</span>
+      <h2>Who I Am Becoming</h2>
+      <p>
+        I am becoming an Ignatian leader who uses technology with competence, conscience, and compassion.
+        I want to grow into a disciplined and faithful man who keeps learning, leads with humility, and
+        creates systems that solve real problems for people. Guided by integrity, perseverance, service,
+        and cura personalis, I hope to build work that is excellent, ethical, and deeply human. In the
+        years ahead, I want my success to be measured not only by what I achieve, but by the kind of person
+        I become and the lives I help improve through my work.
+      </p>
+    </div>
+
+    <div class="section">
+      <span class="section-tag">2 / Prayer for My Future Self</span>
+      <h2>Prayer for the Years Ahead</h2>
+      <p>
+        Lord, guide the person I am becoming. Form in me a heart that listens before it speaks, serves
+        before it seeks recognition, and chooses what is right even when it is difficult. Bless my studies,
+        future work, relationships, and decisions so that they may reflect Your wisdom and love. When I
+        succeed, keep me humble. When I fail, keep me faithful. When I am uncertain, remind me that Your
+        grace goes before me. Give me courage, discipline, compassion, and hope so that my life may honor
+        You and become a source of help, peace, and encouragement to others.
+      </p>
+    </div>
+
+    <div class="lead-block">
+      I want my future to be rooted in both excellence and service: to keep striving for more, not for
+      prestige alone, but for the greater good I can offer through the work I do and the life I live.
+    </div>
+
+    <div class="footer">
+      <span>Passion Plan Resubmission</span>
+      <span>Ferdinand John F. Dobli</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="accent-line"></div>
+    <p class="eyebrow">3 / 10-20 Year Passion Plan</p>
+    <h1>Long-Term Roadmap</h1>
+    <p class="intro">
+      Over the next 10-20 years, I see my vocation at the intersection of technology, leadership, and
+      service. I want to become a professional who builds useful digital solutions, grows into trustworthy
+      leadership, and remains grounded in faith, integrity, and responsibility.
+    </p>
+
+    <div class="roadmap">
+      <article class="roadmap-card">
+        <h3>Years 1-3</h3>
+        <p>
+          Finish my degree well, deepen my skills in software development and problem-solving, and begin
+          meaningful work in the tech field. I want to build strong habits of discipline, prayer, and
+          lifelong learning while starting to support my family and future goals.
+        </p>
+      </article>
+      <article class="roadmap-card">
+        <h3>Years 4-10</h3>
+        <p>
+          Grow into a dependable developer and emerging leader who can design systems that answer real
+          needs. I hope to gain financial stability, take on bigger responsibilities, and mentor others
+          while learning how technology and business can work together for lasting impact.
+        </p>
+      </article>
+      <article class="roadmap-card">
+        <h3>Years 10-20</h3>
+        <p>
+          Lead or help build a mission-driven team, business, or initiative that creates practical and
+          human-centered solutions. I want to live a stable, meaningful life, remain active in service to
+          the community, and build a future marked by generosity, purpose, and integrity.
+        </p>
+      </article>
+    </div>
+
+    <div class="section">
+      <span class="section-tag">Core Values</span>
+      <h2>Values I Will Uphold</h2>
+      <div class="values">
+        <div class="value-pill">Faith</div>
+        <div class="value-pill">Integrity</div>
+        <div class="value-pill">Discipline</div>
+        <div class="value-pill">Excellence</div>
+        <div class="value-pill">Service</div>
+        <div class="value-pill">Compassion</div>
+      </div>
+    </div>
+
+    <div class="closing">
+      <p>
+        My goal is to build a life that is stable, useful, and God-centered. I want the systems I create,
+        the work I lead, and the relationships I keep to reflect cura personalis, responsibility, and love
+        in action. In this way, my career will not only be a path to success, but also a vocation through
+        which I can serve others well.
+      </p>
+    </div>
+
+    <div class="footer">
+      <span>Module 03 / Ignatian Leadership</span>
+      <span>BSIT 4-A</span>
+    </div>
+  </section>
+</body>
+</html>
